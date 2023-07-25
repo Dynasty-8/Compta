@@ -21,7 +21,7 @@ function addSell() {
     var response = SpreadsheetApp.getUi().alert("✅ Votre vente a été ajoutée avec succès", "Voici le récapitulatif de la vente que vous avez ajoutée :\n- Compte client: " + id + "\n- Agent Immobilier: " + author + "\n- Ticket: " + ticket + "\n- Type de propriété: " + type + "\n- Prix: " + price + "$\n- Intérieur: " + interior + "\n- Garage: " + garage + "\n\n❔ Souhaitez-vous récupérer votre prime ? (" + getSellerPrime(sells, author) + "$)\nLe bouton \"Annuler\" supprimera votre vente.", SpreadsheetApp.getUi().ButtonSet.YES_NO_CANCEL);
     switch(response) {
       case SpreadsheetApp.getUi().Button.YES:
-        SpreadsheetApp.getUi().alert("💰 Votre demande a été transmise à la direction", "Merci de patienter en attendant que l'administration réponde à votre demande. Vous serez recontacté sur l'intranet\n\nMontant de la prime: " + (getSellerPrime(sells, author) + price*comission) + "$", SpreadsheetApp.getUi().ButtonSet.OK);
+        SpreadsheetApp.getUi().alert("💰 Votre demande a été transmise à la direction", "Merci de patienter en attendant que l'administration réponde à votre demande. Vous serez recontacté sur l'intranet\n\nMontant de la prime: " + getSellerPrime(sells, author) + "$", SpreadsheetApp.getUi().ButtonSet.OK);
         sendDiscordMessage(primeWH, "<@&1084923439774703706>\n\n**" + author + "** a demandé à __récupérer sa prime__.\nMontant : `" + getSellerPrime(sells, author) + "$`");
         break;
 
@@ -183,17 +183,11 @@ function getSellerRange(sheet, name) {
     case "M. Hendrix":
       return sheet.getRange("J6:P1000");
       
-    case "S. Doe":
+    case "A. Antranik":
       return sheet.getRange("R6:X1000");
 
-    case "A. Jìmenez":
+    case "D. Walter":
       return sheet.getRange("Z6:AF1000");
-
-    case "K. Yui":
-      return sheet.getRange("AH6:AN1000");
-
-    case "G. Menfain":
-      return sheet.getRange("AP6:AV1000");
 
   }
 }
@@ -206,17 +200,11 @@ function getSellerPrime(sheet, name) {
     case "M. Hendrix":
       return sheet.getRange("P4").getValue();
       
-    case "S. Doe":
+    case "A. Antranik":
       return sheet.getRange("X4").getValue();
       
-    case "A. Jìmenez":
+    case "D. Walter":
       return sheet.getRange("AF4").getValue();
-
-    case "K. Yui":
-      return sheet.getRange("AN4").getValue();
-
-    case "G. Menfain":
-      return sheet.getRange("AV4").getValue();
 
   }
 }
@@ -228,18 +216,12 @@ function getSellerDiscord(name) {
 
     case "M. Hendrix":
       return "<@481442129177083912>";
-      
-    case "S. Doe":
-      return "<@668111084179292160>";
 
-    case "A. Jìmenez":
-      return "<@1065296693026902078>";
-
-    case "K. Yui":
+    case "A. Antranik":
       return "<@573631432426258443>";
 
     case "G. Menfain":
-      return "<@1097178680318496901>"
+      return "<@1097178680318496901>";
 
   }
 }
