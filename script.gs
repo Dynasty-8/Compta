@@ -189,6 +189,12 @@ function getSellerRange(sheet, name) {
     case "D. Walter":
       return sheet.getRange("Z6:AF1000");
 
+    case "M. Brown":
+      return sheet.getRange("AH6:AN1000");
+
+    case "M. Amzaoui":
+      return sheet.getRange("AP6:AV1000");
+
   }
 }
 
@@ -206,6 +212,12 @@ function getSellerPrime(sheet, name) {
     case "D. Walter":
       return sheet.getRange("AF4").getValue();
 
+    case "M. Brown":
+      return sheet.getRange("AN4").getValue();
+
+    case "M. Amzaoui":
+      return sheet.getRange("AV4").getValue();
+
   }
 }
 
@@ -220,8 +232,14 @@ function getSellerDiscord(name) {
     case "A. Antranik":
       return "<@573631432426258443>";
 
-    case "G. Menfain":
-      return "<@1097178680318496901>";
+    case "D. Walter":
+      return "<@1010868160943116318>";
+
+    case "M. Brown":
+      return "<@632567892616937472>";
+
+    case "M. Amzaoui":
+      return "<@872196543845900319>";
 
   }
 }
